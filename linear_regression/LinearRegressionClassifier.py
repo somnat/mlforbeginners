@@ -1,5 +1,6 @@
 import torch as ch
 import logging
+from torch.autograd import Variable
 
 
 logging.basicConfig()
@@ -45,7 +46,6 @@ class LinearRegressionClassifier(object):
 
         """
 
-        update = int(iterations / 10)
         if optimizer == 'Analytical':
             cov_x_y = []
             var_x = []
@@ -61,29 +61,6 @@ class LinearRegressionClassifier(object):
             self.alpha = mean_y - self.beta * mean_x
             return
 
-        x_data = ch.FloatTensor(train_x)
-        y_data = ch.FloatTensor(train_y)
-
-        self.beta = ch.randn(1, 1)
-        self.alpha = ch.randn(1)
-
-        if optimizer == 'SGD':
-            optimizer = ch.optim.SGD([self.beta, self.alpha], lr=0.01)
-
-        elif optimizer == 'Adam':
-            optimizer = ch.optim.Adam([self.beta, self.alpha], lr=0.01)
-
-        for _iter in range(iterations):
-            y_pred = x_data.mm(self.beta).add(self.alpha)
-            loss = 1/2 * ch.pow((y_pred - y_data), 2)
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-
-
-            if _iter % update == 0:
-                logger.info("epoch {} loss {}".format(_iter, loss.data[0]))
-
     def predict(self, test_data):
             """This function predicts the target label on the test dataset.
 
@@ -98,7 +75,7 @@ class LinearRegressionClassifier(object):
             for td in self.test_data:
                     predicted_value = float(self.beta) * float(td) + float(self.alpha)
                     logger.info("Predicted value for test_data {} slope {} and bias "
-                            "{} is {}".format(td, self.alpha, self.beta, predicted_value))
+                                "{} is {}".format(td, self.alpha, self.beta, predicted_value))
 
     def save_model(self, file_path):
         """This function saves the model in a file for loading it in future.
