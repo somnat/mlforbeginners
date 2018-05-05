@@ -8,9 +8,9 @@ linux_testenv = [
 ]
 
 setup(
-    name='Supervised_Learning',
+    name='ml-for-beginners',
     version='0.0.1',
-    description=' A supervised machine learning from scratch as well as using pytorch.',
+    description=' A machine learning library from scratch as well as using pytorch for beginners.',
 
     install_requires=[
         'numpy >= 1.14.2',
@@ -27,7 +27,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
     ],
-    url='https://github.com/Supervised_Learning',
+    url='https://github.com/ml-for-beginners',
     license='GPL-3.0',
     packages=find_packages(),
 )
