@@ -1,4 +1,4 @@
-''' Installation script for python fromscratchtoml package'''
+''' Installation script for python mlforbeginner package'''
 
 from setuptools import find_packages, setup
 
@@ -8,10 +8,10 @@ linux_testenv = [
 ]
 
 setup(
-    name='ml-for-beginners',
+    name='mlforbeginners',
     version='0.0.1',
     description=' A machine learning library from scratch as well as using pytorch for beginners.',
-
+    author='Somnath Roy' 
     install_requires=[
         'numpy >= 1.14.2',
         'matplotlib >= 2.1.0'
