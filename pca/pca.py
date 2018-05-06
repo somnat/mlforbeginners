@@ -39,7 +39,7 @@ class PCA(object):
                 temp_list.append(j)
             X_mean0[i] = temp_list
             temp_list = []
-        cov_matrix = np.dot(X_mean0, X_mean0.T)/(row_X - 1)
+        cov_matrix = np.dot(X_mean0, X_mean0.T)/(size_row_X - 1)
         return cov_matrix
 
     def principal_component(X):
