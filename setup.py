@@ -10,8 +10,7 @@ linux_testenv = [
 setup(
     name='mlforbeginners',
     version='0.0.1',
-    description=' A machine learning library from scratch as well as using pytorch for beginners.',
-    author='Somnath Roy' 
+    description=' A machine learning library from scratch as well as using pytorch for beginners.', 
     install_requires=[
         'numpy >= 1.14.2',
         'matplotlib >= 2.1.0'
@@ -27,7 +26,8 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
     ],
-    url='https://github.com/ml-for-beginners',
+    url='https://github.com/mlforbeginners',
     license='GPL-3.0',
+    author='Somnath Roy',
     packages=find_packages(),
 )
