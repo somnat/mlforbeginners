@@ -51,15 +51,12 @@ class NeuralNetwork(object):
                 E = Activation.L2_loss(A_i[i], self.train_y[i])
                 self.E_total += E
 
-        def back_prop(self):
+        def back_prop(self, loss_function='L2_loss'):
             self.loss = self.E_total
-            for j in reversed(range(self.loop_counter+1)):
+            for j in reversed(range(self.loop_counter)):
                 for i in range(len(self.out[j])):
-
                     loss_to_out = self.train_y[i] - self.out[j][i]
                     out_to_net = self.out[j][i]*(1-self.out[j][i])
                     for k in range(self.net[j]):
                         net_to_weight_k = self.net[j][k]
                         self.grad_out.append(loss_to_out*out_to_net*net_to_weight_k)
-
-                for i in reversed(range(len(self.)):
