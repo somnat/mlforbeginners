@@ -31,7 +31,8 @@ class Activation(object):
     def derivate_relu(x):
         if x > 0:
             return 1
-        return 0
+        else:
+            return 0
 
     @staticmethod
     def derivate_sigmoid(x):
