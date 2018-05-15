@@ -1,4 +1,4 @@
-import torch as ch
+import numpy as np
 import logging
 
 
@@ -15,15 +15,15 @@ class Activation(object):
 
     @staticmethod
     def sigmoid(x):
-        return 1 / (1 + ch.exp(-x))
+        return 1 / (1 + np.exp(-x))
 
     @staticmethod
     def tanh(x):
-        return (1 - ch.exp(x)) / (1 + ch.exp(x))
+        return (1 - np.exp(x)) / (1 + np.exp(x))
 
     @staticmethod
     def softmax(x):
-        x_new = [ch.exp(i) for i in x]
+        x_new = [np.exp(i) for i in x]
         sum_x_new = sum(x_new)
         return [sum_x_new / (i) for i in x_new]
 
@@ -40,4 +40,4 @@ class Activation(object):
 
     @staticmethod
     def derivate_tanh(x):
-        return - ch.exp(x) / (1 + ch.exp(x)) ** 2
+        return - np.exp(x) / (1 + np.exp(x)) ** 2
